@@ -91,6 +91,15 @@ abstract class AutomatonSpecification implements Cloneable  {
         return spec1;
     }
 
+    public AutomatonSpecification makeMultiples(char c, int n){
+    	AutomatonSpecification spec1 = new NaiveAutomatonSpecification();
+    	State q0 = spec1.addState();
+    	spec1.markAsInitial(q0);
+    	spec1.markAsFinal(q0);
+    	spec1.addLoop(q0, new CharTransitionLabel(c));    	
+    	return spec1;
+    }
+    
     /**
      * Oznacza stan jako końcowy (akceptujący).
      */
